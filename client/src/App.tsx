@@ -13,6 +13,9 @@ import Routes from './components/pages/Routes';
 //* Blockchain
 // import getWeb3 from './utils/getWeb3.js';
 //import MedChainContract from './contracts/med_chain.json';
+ 
+import { medChain } from './utils/med_chain';
+import { W3 } from 'soltsice';
 
 //* Blockchain Functions
 // async function getBlock() {
@@ -161,6 +164,13 @@ const App: React.FC = () => {
 
     // connectMetamask();
     // console.log(contract);
+
+    medChain.deployed().then((instance) => {
+      alert(instance.address);
+      setReady(true);
+      setSignedIn(true)
+    })
+    
 
   }, []);
 
